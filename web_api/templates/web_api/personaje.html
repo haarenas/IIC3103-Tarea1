@@ -1,19 +1,29 @@
 {% extends "web_api/base.html"%} {%block content%}
-<img src="{{personajes.image}}" alt="personaje image">
+<div class="text-center">
+    <span class="border border-dark">
+    <img src="{{personajes.image}}" class="rounded" alt="personaje_imagen">
+</div>
 <h1>Personaje: {{personajes.name}}</h1>
-<p>Estado: {{personajes.status}}</p>
-<p>Genero: {{personajes.gender}}</p>
-<p>Especie: {{personajes.species}}</p>
-<p>Lugar de origen: {% if personajes.origen.id %} <a href="{% url 'lugar' loc_id=personajes.origen.id %}"> {% else %} <a href="#"> {% endif %} {{personajes.origen.name}}</a> </p>
-<p>Lugar actual: {% if personajes.lugar.id %}<a href="{% url 'lugar' loc_id=personajes.lugar.id %}"> {% else %} <a href="#"> {% endif %} {{personajes.lugar.name}}</a></p>
-<p>Episodios en los que aparece:</p>
-<ul class="list-group">
-    {% for ep in personajes.episodios %}
 
-    <a href="{% url 'episodio' ep_id=ep.id %}" class="list-group-item list-group-item-action">
-        <h1>Episodio {{ep.id}}: {{ep.name}}</h1>
-    </a>
+<ul class="list-group">
+    <li class="list-group-item">Estado: {{personajes.status}}</li>
+    <li class="list-group-item">Genero: {{personajes.gender}}</li>
+    <li class="list-group-item">Estado: {{personajes.status}}</li>
+    <li class="list-group-item">Especie: {{personajes.species}}</li>
+    <li class="list-group-item">Lugar de origen: {% if personajes.origen.id %} <a href="{% url 'lugar' loc_id=personajes.origen.id %}"> {% else %} <a href="#"> {% endif %} {{personajes.origen.name}}</a></li>
+    <li class="list-group-item">Lugar actual: {% if personajes.lugar.id %}<a href="{% url 'lugar' loc_id=personajes.lugar.id %}"> {% else %} <a href="#"> {% endif %} {{personajes.lugar.name}}</a></li>
+    <li class="list-group-item">
+        Episodios en los que aparece:
+        <ul class="list-group">
+        {% for ep in personajes.episodios %}
+    
+        <a href="{% url 'episodio' ep_id=ep.id %}" class="list-group-item list-group-item-action">
+            <h4>Episodio {{ep.id}}: {{ep.name}}</h4>
+        </a>
+        {% endfor %}
+        </ul>
+    </li>
+
 </ul>
 
-
-{% endfor %}{%endblock content%}
+{%endblock content%}
