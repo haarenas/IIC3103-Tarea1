@@ -64,15 +64,15 @@ def buscar(request):
     context = {
         'title': 'Busqueda',
         'personajes': {
-            'encontro': True if res_search[0] else False,
+            'encontro': True if res_search[0][0] else False,
             'resultado': res_search[0]
         },
         'lugares': {
-            'encontro': True if res_search[1] else False,
+            'encontro': True if res_search[1][0] else False,
             'resultado': res_search[1]
         },
         'episodios': {
-            'encontro': True if res_search[2] else False,
+            'encontro': True if res_search[2][0] else False,
             'resultado': res_search[2]
         }
 

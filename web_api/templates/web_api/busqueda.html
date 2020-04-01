@@ -1,49 +1,43 @@
 {% extends "web_api/base.html"%} {%block content%}
 <h1>Resultados de busqueda:</h1>
 <h3>Personajes: </h3>
-{% if personajes.encontro %}
-    {% for res in personajes.resultado%}
-        <ul class="list-group">
-            {% for pj in res%}
-                <a href="{% url 'personaje' pj_id=pj.id %}" class="list-group-item list-group-item-action">
-                    <h4>{{pj.name}}</h4>
-                </a>
-            {% endfor %}
-        </ul>
+{% if personajes.encontro %} {% for res in personajes.resultado%}
+<ul class="list-group">
+    {% for pj in res%}
+    <a href="{% url 'personaje' pj_id=pj.id %}" class="list-group-item list-group-item-action">
+        <h4>{{pj.name}}</h4>
+    </a>
     {% endfor %}
-{% else %}
-    <p>No se encontraron resultados.</p> 
+</ul>
+{% endfor %} {% else %}
+<h5>No se encontraron resultados.</h5>
 {% endif %}
 <br>
 
 <h3>Lugares: </h3>
-{% if lugares.encontro %}
-    {% for res in lugares.resultado%}
-        <ul class="list-group">
-            {% for loc in res%}
-                <a href="{% url 'lugar' loc_id=loc.id %}" class="list-group-item list-group-item-action">
-                    <h4>{{loc.name}}</h4>
-                </a>
-            {% endfor %}
-        </ul>
+{% if lugares.encontro %} {% for res in lugares.resultado%}
+<ul class="list-group">
+    {% for loc in res%}
+    <a href="{% url 'lugar' loc_id=loc.id %}" class="list-group-item list-group-item-action">
+        <h4>{{loc.name}}</h4>
+    </a>
     {% endfor %}
-{% else %}
-    <p>No se encontraron resultados.</p>
+</ul>
+{% endfor %} {% else %}
+<h5>No se encontraron resultados.</h5>
 {% endif %}
 <br>
 
 <h3>Episodios: </h3>
-{% if episodios.encontro %}
-    {% for res in episodios.resultado%}
-        <ul class="list-group">
-            {% for ep in res%}
-                <a href="{% url 'episodio' ep_id=ep.id %}" class="list-group-item list-group-item-action">
-                    <h4>{{ep.name}}</h4>
-                </a>
-            {% endfor %}
-        </ul>
+{% if episodios.encontro %} {% for res in episodios.resultado%}
+<ul class="list-group">
+    {% for ep in res%}
+    <a href="{% url 'episodio' ep_id=ep.id %}" class="list-group-item list-group-item-action">
+        <h4>{{ep.name}}</h4>
+    </a>
     {% endfor %}
-{% else %}
-    <p>No se encontraron resultados.</p> 
+</ul>
+{% endfor %} {% else %}
+<h5>No se encontraron resultados.</h5>
 {% endif %}
 <br> {%endblock content%}
