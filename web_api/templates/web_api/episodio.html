@@ -1,10 +1,13 @@
 {% extends "web_api/base.html"%} {%block content%}
+<h1>Episodio: {{episodios.episode}} - {{episodios.name}}</h1>
+<h3>Fecha de estreno: {{episodios.air_date}}</h3>
+<p>Personajes: </p>
 <ul class="list-group">
-    {% for pj in personajes %}
+    {% for pj in episodios.personajes%}
 
 
     <a href="{% url 'personaje' pj_id=pj.id %}" class="list-group-item list-group-item-action">
-        <h1>{{pj.name}}</h1>
+        <h3>{{pj.name}}</h3>
     </a>
 </ul>
 

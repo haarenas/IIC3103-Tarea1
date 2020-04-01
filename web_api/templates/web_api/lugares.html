@@ -1,0 +1,12 @@
+{% extends "web_api/base.html"%} {%block content%}
+<ul class="list-group">
+    {% for loc in lugares %}
+
+
+    <a href="{% url 'lugar' loc_id=loc.id %}" class="list-group-item list-group-item-action">
+        <h1>{{loc.name}}</h1>
+    </a>
+</ul>
+
+
+{% endfor %} {%endblock content%}

@@ -1,7 +1,10 @@
 {% extends "web_api/base.html"%} {%block content%}
+<h1>{{lugares.name}}</h1>
+<p>Tipo: {{lugares.type}}</p>
+<p>Dimension: {{lugares.dimension}}</p>
+<p>Residentes:</p>
 <ul class="list-group">
-    {% for pj in personajes %}
-
+    {% for pj in lugares.residentes %}
 
     <a href="{% url 'personaje' pj_id=pj.id %}" class="list-group-item list-group-item-action">
         <h1>{{pj.name}}</h1>
