@@ -25,7 +25,7 @@ SECRET_KEY = 'cywj19&sq^x-9u#(+fdjl+**er%wpw2-7wxr%0$k@7@)c5uu6!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['api-rick-and-morty.herokuapp.com']
 
 
 # Application definition
